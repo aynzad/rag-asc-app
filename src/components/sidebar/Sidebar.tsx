@@ -61,6 +61,15 @@ export const Sidebar = () => {
               </ListItemButton>
             </ListItem>
           ))}
+          {chats.data.response.length === 0 && (
+            <ListItem>
+              <ListItemButton>
+                <Typography variant="inherit" noWrap>
+                  Ask a question to start
+                </Typography>
+              </ListItemButton>
+            </ListItem>
+          )}
         </List>
       </Box>
     </Drawer>
