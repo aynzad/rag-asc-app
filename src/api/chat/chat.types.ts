@@ -4,15 +4,17 @@ export interface ChatMessageQuestion {
   question: string;
 }
 
-export interface ChatMessageAnswer {
-  id: string;
-  type: "answer";
+export interface ChatMessageAnswerItem {
   pdfLink: string;
   pdfName: string;
   pageNumber: number;
   responseReference: string;
   llmResponse: string;
   additionalInfo: string;
+}
+export interface ChatMessageAnswer {
+  type: "answer";
+  items: ChatMessageAnswerItem[];
 }
 
 export type ChatMessage = ChatMessageQuestion | ChatMessageAnswer;

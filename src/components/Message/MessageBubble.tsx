@@ -10,6 +10,7 @@ interface MessageBubbleProps extends BoxProps<"div"> {
 export const MessageBubble = ({
   message,
   type,
+  sx,
   ...props
 }: MessageBubbleProps) => {
   return (
@@ -24,6 +25,7 @@ export const MessageBubble = ({
         alignSelf: type === "question" ? "flex-end" : "flex-start",
         maxWidth: "60%",
         wordBreak: "break-word",
+        ...sx,
       }}
     >
       {message.split("\n").map((line, index) => (
