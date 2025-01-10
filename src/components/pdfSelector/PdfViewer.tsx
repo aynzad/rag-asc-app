@@ -24,7 +24,8 @@ const options = {
 
 const resizeObserverOptions = {};
 
-const DEFAULT_MAX_WIDTH = 600;
+const DEFAULT_MAX_WIDTH = 568;
+const DEFAULT_MAX_HEIGHT = 803;
 
 type PDFFile = string | File | null;
 
@@ -79,6 +80,7 @@ export const PdfViewer = ({
     <Box
       sx={{
         width: maxWidth,
+        aspectRatio: "1 / 1.414",
         position: "relative",
       }}
     >

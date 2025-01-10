@@ -12,7 +12,7 @@ export const ChatList = ({ chatId }: ChatListProps) => {
 
   return (
     <Container
-      maxWidth="lg"
+      maxWidth="xl"
       sx={{
         display: "flex",
         flexDirection: "column",

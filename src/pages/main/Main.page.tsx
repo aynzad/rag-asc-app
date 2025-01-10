@@ -76,10 +76,10 @@ export function MainPage() {
                   ],
                 });
                 queryClient.invalidateQueries({
-                  queryKey: "/v1/chats",
+                  queryKey: ["chats"],
                 });
                 queryClient.invalidateQueries({
-                  queryKey: `/v1/chats/${data.chatId}`,
+                  queryKey: ["chats", data.chatId],
                 });
                 navigate({
                   to: `/chat/${data.chatId}`,

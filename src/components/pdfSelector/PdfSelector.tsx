@@ -1,5 +1,11 @@
 import { useMemo, useState } from "react";
-import { Box, List, ListItemButton, ListItemText } from "@mui/material";
+import {
+  Box,
+  List,
+  ListItemButton,
+  ListItemText,
+  Tooltip,
+} from "@mui/material";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 
 import { ChatMessageAnswerItem } from "@src/api/chat/chat.types";
@@ -25,26 +31,36 @@ export const PdfSelector = ({ items }: PdfSelectorProps) => {
         flexDirection: "row-reverse",
         gap: 2,
         borderRadius: 2,
-        backgroundColor: "background.sidebar",
+        backgroundColor: "background.dark",
         padding: 2,
       }}
     >
-      <List>
+      <List
+        sx={{
+          minWidth: 400,
+        }}
+      >
         {items.map((item, index) => (
-          <ListItemButton
+          <Tooltip
+            title={item.responseReference}
             key={index}
-            selected={index === activeAnswerIndex}
-            onClick={() => setActiveAnswerIndex(index)}
+            placement="left"
+            arrow
           >
-            <ArrowLeftIcon />
-            <ListItemText
-              primary={
-                item.llmResponse.length > 50
-                  ? `${item.llmResponse.substring(0, 50)}...`
-                  : item.llmResponse
-              }
-            />
-          </ListItemButton>
+            <ListItemButton
+              selected={index === activeAnswerIndex}
+              onClick={() => setActiveAnswerIndex(index)}
+            >
+              <ArrowLeftIcon />
+              <ListItemText
+                primary={
+                  item.responseReference.length > 120
+                    ? `${item.responseReference.substring(0, 120)}...`
+                    : item.responseReference
+                }
+              />
+            </ListItemButton>
+          </Tooltip>
         ))}
       </List>
       <Box

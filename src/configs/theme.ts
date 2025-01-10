@@ -7,6 +7,7 @@ import {
 declare module "@mui/material/styles" {
   interface TypeBackground {
     sidebar: string;
+    dark: string;
   }
 }
 
@@ -19,8 +20,9 @@ const palette: PaletteOptions = {
     main: "#040615",
   },
   background: {
-    default: "#151515",
-    paper: "#191919",
+    default: "#282828",
+    paper: "#333333",
+    dark: "#1b1919",
     sidebar: "#121111",
   },
   text: {

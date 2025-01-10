@@ -22,8 +22,8 @@ const messages = [
   {
     id: "4",
     type: "answer",
-    rows: 10,
-    width: "50%",
+    rows: 13,
+    width: "80%",
   },
   {
     id: "5",
@@ -42,7 +42,7 @@ const messages = [
 export const ChatListSkeleton = () => {
   return (
     <Container
-      maxWidth="md"
+      maxWidth="xl"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -61,7 +61,7 @@ export const ChatListSkeleton = () => {
             backgroundColor:
               message.type === "question"
                 ? "background.paper"
-                : "background.sidebar",
+                : "background.dark",
             alignSelf: message.type === "question" ? "flex-end" : "flex-start",
             width: message.width,
             maxWidth: "60%",

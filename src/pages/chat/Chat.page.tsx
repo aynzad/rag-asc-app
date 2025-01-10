@@ -29,7 +29,7 @@ export function ChatPage() {
       </Box>
 
       <Box pt={2} pb={1}>
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
           <InputFrom
             placeholder="Ask more questions..."
             isLoading={isPending}
