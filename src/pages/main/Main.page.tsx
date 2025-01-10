@@ -10,6 +10,7 @@ import {
 } from "@src/utils/useSaveLocalStorage";
 import { GetChatsResponse } from "@src/api/chats/chats.types";
 import { GetChatResponse } from "@src/api/chat/chat.types";
+import { queryClient } from "@src/app/App";
 
 export function MainPage() {
   const navigate = useNavigate({ from: "/" });
@@ -74,7 +75,12 @@ export function MainPage() {
                     },
                   ],
                 });
-
+                queryClient.invalidateQueries({
+                  queryKey: "/v1/chats",
+                });
+                queryClient.invalidateQueries({
+                  queryKey: `/v1/chats/${data.chatId}`,
+                });
                 navigate({
                   to: `/chat/${data.chatId}`,
                 });

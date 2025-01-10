@@ -17,7 +17,7 @@ import { routeTree } from "@src/app/routes.gen";
 import "@src/assets/css/app.css";
 import "react-toastify/dist/ReactToastify.css";
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: (error) => {
       toast.error(error.message);
