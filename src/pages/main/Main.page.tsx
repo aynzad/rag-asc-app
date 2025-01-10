@@ -1,6 +1,5 @@
 import { Container, Typography } from "@mui/material";
 import { useNavigate } from "@tanstack/react-router";
-import { useLocalStorage } from "@wojtekmaj/react-hooks";
 
 import { useSendChatMessage } from "@src/api/chat/chat.mutation";
 import { InputFrom } from "@src/components/inputForm/InputForm";

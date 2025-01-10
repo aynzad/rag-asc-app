@@ -19,8 +19,8 @@ export const ChatList = ({ chatId }: ChatListProps) => {
         gap: 2,
       }}
     >
-      {data.response.map((message) => (
-        <Message key={message.id} message={message} />
+      {data.response.map((message, index) => (
+        <Message key={index} message={message} />
       ))}
     </Container>
   );

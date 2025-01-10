@@ -2,7 +2,6 @@ import { BoxProps } from "@mui/material";
 
 import { ChatMessage } from "@src/api/chat/chat.types";
 import { MessageBubble } from "./MessageBubble";
-import { PdfViewer } from "../pdfSelector/PdfViewer";
 import { PdfSelector } from "../pdfSelector/PdfSelector";
 
 interface MessageProps extends BoxProps<"div"> {
@@ -21,6 +20,4 @@ export const Message = ({ message, ...props }: MessageProps) => {
   }
 
   return <PdfSelector items={message.items} />;
-
-  // TODO handle pdf here
 };

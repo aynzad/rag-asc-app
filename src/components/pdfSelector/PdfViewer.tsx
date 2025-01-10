@@ -5,12 +5,12 @@ import { useResizeObserver } from "@wojtekmaj/react-hooks";
 import { Box, IconButton } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import { ScrollPageIntoViewArgs } from "react-pdf/dist/esm/shared/types.js";
+import LinkService from "react-pdf/dist/esm/LinkService.js";
 
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "./PdfViewer.css";
-import LinkService from "react-pdf/dist/esm/LinkService.js";
-import { ScrollPageIntoViewArgs } from "react-pdf/dist/esm/shared/types.js";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
