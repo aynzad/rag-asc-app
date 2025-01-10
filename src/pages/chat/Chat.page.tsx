@@ -30,8 +30,6 @@ export function ChatPage() {
         chatListContainerRef.current.scrollHeight -
         lastMessage.clientHeight -
         70;
-
-      console.log(lastMessage.clientHeight);
     }
   }, [pendingQuestion]);
 
