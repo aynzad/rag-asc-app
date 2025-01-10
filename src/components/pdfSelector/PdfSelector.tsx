@@ -37,7 +37,13 @@ export const PdfSelector = ({ items }: PdfSelectorProps) => {
             onClick={() => setActiveAnswerIndex(index)}
           >
             <ArrowLeftIcon />
-            <ListItemText primary={item.llmResponse} />
+            <ListItemText
+              primary={
+                item.llmResponse.length > 20
+                  ? `${item.llmResponse.substring(0, 20)}...`
+                  : item.llmResponse
+              }
+            />
           </ListItemButton>
         ))}
       </List>
