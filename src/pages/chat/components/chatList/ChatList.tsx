@@ -5,9 +5,10 @@ import { Message } from "@src/components/Message/Message";
 
 interface ChatListProps {
   chatId: string;
+  pendingQuestion: string | null;
 }
 
-export const ChatList = ({ chatId }: ChatListProps) => {
+export const ChatList = ({ chatId, pendingQuestion }: ChatListProps) => {
   const { data } = useChat(chatId);
 
   return (
@@ -22,6 +23,16 @@ export const ChatList = ({ chatId }: ChatListProps) => {
       {data.response.map((message, index) => (
         <Message key={index} message={message} />
       ))}
+      {pendingQuestion && (
+        <Message
+          isPending
+          message={{
+            id: `${Date.now()}-p`,
+            type: "question",
+            question: pendingQuestion,
+          }}
+        />
+      )}
     </Container>
   );
 };

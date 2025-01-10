@@ -25,7 +25,6 @@ const options = {
 const resizeObserverOptions = {};
 
 const DEFAULT_MAX_WIDTH = 568;
-const DEFAULT_MAX_HEIGHT = 803;
 
 type PDFFile = string | File | null;
 

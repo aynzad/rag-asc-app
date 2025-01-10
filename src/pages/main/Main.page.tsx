@@ -36,7 +36,7 @@ export function MainPage() {
           sendChatMessage(
             { query },
             {
-              onSuccess(data) {
+              onSuccess: (data) => {
                 const oldChats = getLocalStorageValue<GetChatsResponse>(
                   "/v1/chats"
                 ) || {
@@ -79,7 +79,7 @@ export function MainPage() {
                   queryKey: ["chats"],
                 });
                 queryClient.invalidateQueries({
-                  queryKey: ["chats", data.chatId],
+                  queryKey: ["chat", data.chatId],
                 });
                 navigate({
                   to: `/chat/${data.chatId}`,
