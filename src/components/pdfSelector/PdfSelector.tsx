@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import {
   Box,
+  Grid2 as Grid,
   List,
   ListItemButton,
   ListItemText,
@@ -25,7 +26,9 @@ export const PdfSelector = ({ items }: PdfSelectorProps) => {
   );
 
   return (
-    <Box
+    <Grid
+      container
+      spacing={2}
       sx={{
         display: "flex",
         flexDirection: "row-reverse",
@@ -35,51 +38,51 @@ export const PdfSelector = ({ items }: PdfSelectorProps) => {
         padding: 2,
       }}
     >
-      <List
-        sx={{
-          minWidth: 400,
-        }}
-      >
-        {items.map((item, index) => (
-          <Tooltip
-            title={item.responseReference}
-            key={index}
-            placement="left"
-            arrow
-          >
-            <ListItemButton
-              selected={index === activeAnswerIndex}
-              onClick={() => setActiveAnswerIndex(index)}
+      <Grid size={4}>
+        <List>
+          {items.map((item, index) => (
+            <Tooltip
+              title={item.responseReference}
+              key={index}
+              placement="left"
+              arrow
             >
-              <ArrowLeftIcon />
-              <ListItemText
-                primary={
-                  item.responseReference.length > 120
-                    ? `${item.responseReference.substring(0, 120)}...`
-                    : item.responseReference
-                }
-              />
-            </ListItemButton>
-          </Tooltip>
-        ))}
-      </List>
-      <Box
-        sx={{
-          borderRight: "1px solid",
-          borderColor: "divider",
-        }}
-      >
-        <MessageBubble
-          type="answer"
-          message={activeAnswer.llmResponse}
-          sx={{ bgcolor: "transparent" }}
-        />
+              <ListItemButton
+                selected={index === activeAnswerIndex}
+                onClick={() => setActiveAnswerIndex(index)}
+              >
+                <ArrowLeftIcon />
+                <ListItemText
+                  primary={
+                    item.responseReference.length > 120
+                      ? `${item.responseReference.substring(0, 120)}...`
+                      : item.responseReference
+                  }
+                />
+              </ListItemButton>
+            </Tooltip>
+          ))}
+        </List>
+      </Grid>
+      <Grid size={8}>
+        <Box
+          sx={{
+            borderRight: "1px solid",
+            borderColor: "divider",
+          }}
+        >
+          <MessageBubble
+            type="answer"
+            message={activeAnswer.llmResponse}
+            sx={{ bgcolor: "transparent" }}
+          />
 
-        <PdfViewer
-          file={activeAnswer.pdfLink}
-          initialPageNumber={activeAnswer.pageNumber}
-        />
-      </Box>
-    </Box>
+          <PdfViewer
+            file={activeAnswer.pdfLink}
+            initialPageNumber={activeAnswer.pageNumber}
+          />
+        </Box>
+      </Grid>
+    </Grid>
   );
 };

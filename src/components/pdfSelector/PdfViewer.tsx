@@ -78,7 +78,6 @@ export const PdfViewer = ({
   return (
     <Box
       sx={{
-        width: maxWidth,
         aspectRatio: "1 / 1.414",
         position: "relative",
       }}
