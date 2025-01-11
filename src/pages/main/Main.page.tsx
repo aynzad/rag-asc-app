@@ -12,7 +12,7 @@ import { GetChatsResponse } from "@src/api/chats/chats.types";
 import { GetChatResponse } from "@src/api/chat/chat.types";
 import { queryClient } from "@src/app/App";
 
-export function MainPage() {
+export default function MainPage() {
   const navigate = useNavigate({ from: "/" });
   const { mutate: sendChatMessage, isPending } = useSendChatMessage();
 

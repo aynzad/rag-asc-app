@@ -14,7 +14,7 @@ import {
 import { ChatListSkeleton } from "./components/chatList/ChatList.skeleton";
 import { ChatList } from "./components/chatList/ChatList";
 
-export function ChatPage() {
+export default function ChatPage() {
   const { chatId } = useParams({ from: "/chat/$chatId" });
   const { mutate: sendChatMessage, isPending } = useSendChatMessage();
   const [pendingQuestion, setPendingQuestion] = useState<string | null>(null);
